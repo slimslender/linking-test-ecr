@@ -14,7 +14,7 @@ phases:
       - echo Build started on `date`
       - echo Building the base Docker image...          
       - aws s3 cp s3://ecr-integration-test/creds/.docker.key .docker.key
-      - docker login -u username slimslenderslacks --password-stdin < .docker.key
+      - docker login -u slimslenderslacks --password-stdin < .docker.key
       - rm .docker.key
       - docker build -t base:latest --label "org.opencontainers.image.revision=$CODEBUILD_RESOLVED_SOURCE_VERSION" --label "org.opencontainers.image.source=base/Dockerfile" -f base/Dockerfile .
       - docker tag base:latest $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/base:latest      
