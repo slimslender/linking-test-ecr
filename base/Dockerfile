@@ -1,3 +1,3 @@
 FROM ubuntu:devel
-RUN echo '{:version 14}' > dog.json
+RUN echo '{:version 15}' > dog.json
 CMD ["cat", "dog.json"]
